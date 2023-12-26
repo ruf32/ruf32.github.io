@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos java</title>
+    <!-- bootstrap line ref -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+</head>
+<body style="background-color: black;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Curriculum</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Angular proyect</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Mis proyectos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./java.html">Java</a></li>
+                        <li><a class="dropdown-item" href="./php.html">Php</a></li>
+                        <li><a class="dropdown-item" href="./javascript.html">Javascript</a></li>
+                        <li><a class="dropdown-item" href="./angular.html">Angular + Typescript</a></li>
+                        <li><a class="dropdown-item" href="./react.html">Vue + React</a></li>
+                        <li><a class="dropdown-item" href="./idiomas.html">Idiomas antiguos(Pascal,Basic) </a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+             
+    </nav>
+  <div style="color: aliceblue; text-align: center;text-justify:distribute;align-items: center;margin-right: 15%;margin-left: 15%;" >
+    <br><br><br>
+    <p translate="yes">Durante mis estudios en Java he aprendido bastante de programacion orientada a objetos y programacion orientada a aspectos. 
+       Aprovechando  mis estudios anteriores (Pascal y basic) he sabido aplicar bastante bien la lectura de datos en codigo ASCII para la lectura de ficheros
+   <br><br>Tengo bastate experiencia en conexiones jdbc y el uso de hilos para la coordinacion de recursos obtenidos de las mismas
+    .Aparte de los proyectos simples de uso de estructuras de control desarrolle un proyecto para el desarrolo de un bot de automatizacion para el juego-web travian
+    <br>Este constaba de las siguientes funcionalidades:
+    <br><br>
+    <br> - Base de datos con los niveles de minas,edificios, tropas y aldeas atacables de cada aldea del jugador
+    <br> - Extraccion de datos de la pagina web en archivo temporal para posterior actualizacion
+    <br> - Interfaz para la automaticazion de subidas de edificios,creacion de tropas o envio de asaltos
+    <br> - Uso de la clase robot para la ejecucion de ordenes automatizadas con entradas random temporales y espaciales para emular un uso humano
+    <br>Este programa debido al incumpliento de las normas de este juego-web no debo enseñarlo pero aqui dejo unas muestras
+<br><br>
+   
+</p>
+  </div>
+  <div style="display: grid;grid-template-columns: repeat(3,280px);align-items: center;justify-content: center; "> 
+    <div style="height: 250px;width:250px;background-image:url('../asstes/constructorconsultas.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;" onclick="redirect('../asstes/constructorconsultas.bmp')">Consultas</div>
+    <div style="height: 250px;width:250px;background-image:url('../asstes/writer.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;"onclick="redirect('../asstes/writer.bmp')" >Writer </div>
+    <div style="height: 250px;width:250px;background-image:url('../asstes/transfer.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;"onclick="redirect('../asstes/transfer.bmp')" >Transfer</div>
+    <div style="height: 250px;width:250px;background-image:url('../asstes/botact.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;"onclick="redirect('../asstes/botact.bmp')" >Botact</div>
+    <div style="height: 250px;width:250px;background-image:url('../asstes/construcciones.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;"onclick="redirect('../asstes/construcciones.bmp')" >Constructor</div>
+    <div style="height: 250px;width:250px;background-image:url('../asstes/bbdd.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;"onclick="redirect('../asstes/bbdd.bmp')" >BBDD</div>
+    <div style="height: 250px;width:250px;background-image:url('../asstes/analizador.bmp');background-size:contain;background-repeat: no-repeat ;color: aliceblue;"onclick="redirect('../asstes/analizador.bmp')" >Analizador de string</div>
+ <script >function redirect(str){
+  
+  window.location.href=str
+ }</script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>
