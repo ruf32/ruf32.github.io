@@ -47,8 +47,9 @@ section{
      
       <canvas></canvas>
           </div>
-          <strong>Puntuacion: <span></span></strong>
           
+          <strong>Puntuacion: <span></span></strong>
+          <div id="audioContainer"></div>
     <script>
       //canvas definition 
 const canvas=document.querySelector("canvas")
@@ -249,6 +250,18 @@ row.push(piece.shape[j][i])
  if (!level){level=1}
   const formr=document.querySelector('form')
   formr.remove()
+  var audioContainer = document.getElementById("audioContainer");
+
+var audioElement = document.createElement("audio");
+audioElement.controls = true;
+audioElement.autoplay = true;
+    audioElement.loop = true;
+var sourceElement = document.createElement("source");
+sourceElement.src = "Tetris.mp3"; 
+sourceElement.type = "audio/mp3";
+
+audioElement.appendChild(sourceElement);
+audioContainer.appendChild(audioElement);
   update()
   
 
