@@ -2,11 +2,12 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tetris</title>
-    <style>
-      :root {
+  </head>
+  <style>
+    :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -28,19 +29,27 @@ body{
  place-content: center;
  height: 100vh;
 }
-    </style>
-  </head>
+section{
+  position: absolute;
+  height: 100hv;
+  width: 100hv;
+  color: aliceblue;
+  background-color: #242424;
+  font-size: xx-large;
+}
+  </style>
   <body>
     <div id="app">
+      <section>START GAME</section>
       <canvas></canvas>
           </div>
           <strong>Puntuacion: <span></span></strong>
     <script>
-      
-//canvas definition 
+      //canvas definition 
 const canvas=document.querySelector("canvas")
  const context=canvas.getContext("2d")
  const $score=document.querySelector('span')
+ const $section=document.querySelector('section')
  const block_size=20
  const Board_height=30
  const Board_with=14
@@ -222,7 +231,16 @@ row.push(piece.shape[j][i])
 
 
  }
- update()
+ $section.addEventListener('click',()=>{
+  $section.remove()
+  update()
+  const audio=new Audio('Tetris.mp3')
+  console.log(audio.length)
+  audio.volume=0.7
+  audio.loop=true
+  audio.play
+
+})
     </script>
   </body>
 </html>

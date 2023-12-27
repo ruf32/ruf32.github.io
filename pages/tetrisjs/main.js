@@ -3,6 +3,7 @@ import './style.css'
 const canvas=document.querySelector("canvas")
  const context=canvas.getContext("2d")
  const $score=document.querySelector('span')
+ const $section=document.querySelector('section')
  const block_size=20
  const Board_height=30
  const Board_with=14
@@ -184,8 +185,16 @@ row.push(piece.shape[j][i])
 
 
  }
- update()
+ $section.addEventListener('click',()=>{
+  $section.remove()
+  update()
+  const audio=new Audio('Tetris.mp3')
+  console.log(audio.length)
+  audio.volume=0.7
+  audio.loop=true
+  audio.play
 
+})
 
 
  
