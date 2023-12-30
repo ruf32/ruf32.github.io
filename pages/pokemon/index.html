@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 50px;
+            width:70px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 5px;
+            font-size: x-small;
+        }
+        body{
+            display: grid;
+            grid-template-columns: repeat(18,75px);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let lista=[]
+        const img=[]
+        async function fetchdataAll(){
+            return await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
+
+        }
+        async function fetchimg(url){
+            return await fetch(url)
+        }
+        fetchdataAll().then((res)=>{
+            res.json().then(value=>{
+                lista=value.results
+                lista.forEach((elem)=>{
+           const divi=document.createElement('div')
+           const paraf=document.createElement('p')
+           paraf.innerText=elem.name
+           divi.appendChild(paraf)
+           divi.setAttribute('id',elem.name)
+                   
+           
+           
+            fetch(elem.url).then(res=>{
+                const data=res.json().then(value=>{
+                    
+                divi.style.backgroundImage=`url(${value.sprites.front_default})`
+                img.push(value.sprites.front_default)
+                document.body.appendChild(divi) 
+                })
+                
+                
+            })
+        })
+       
+       })
+console.log(img)
+        })
+        
+
+    </script>
+
+    
+</body>
+</html>
