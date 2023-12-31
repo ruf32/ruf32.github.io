@@ -8,7 +8,7 @@
         div{
             height: 50px;
             width:70px;
-            background-size: cover;
+            background-size:contain;
             background-repeat: no-repeat;
             padding: 5px;
             font-size: x-small;
@@ -42,7 +42,7 @@
             console.log(param)
         }
         fetchdataAll().then(res=>{
-            console.log(res)
+           
             lista=res.results
             if (lista.length>0){
             lista.forEach(element => {
