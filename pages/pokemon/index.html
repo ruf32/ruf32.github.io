@@ -20,44 +20,85 @@
     </style>
 </head>
 <body>
+    <h1 id="number"> </h1>
+    
+    <button onclick="cargarlista()">Cargar lista</button>
     <script>
         let lista=[]
-        const img=[]
+        const obj=[]
         async function fetchdataAll(){
-            return await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-
+            const fetch1= await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
+            const res= await fetch1.json()
+            return res
         }
-        async function fetchimg(url){
-            return await fetch(url)
+        async function fetchdata(url){
+           const fetch1= await fetch(url)
+           const res= await fetch1.json()
+           return res
         }
-        fetchdataAll().then((res)=>{
-            res.json().then(value=>{
-                lista=value.results
-                lista.forEach((elem)=>{
-           const divi=document.createElement('div')
-           const paraf=document.createElement('p')
-           paraf.innerText=elem.name
-           divi.appendChild(paraf)
-           divi.setAttribute('id',elem.name)
-                   
-           
-           
-            fetch(elem.url).then(res=>{
-                const data=res.json().then(value=>{
+        function name(param){
+            console.log(param)
+        }
+        fetchdataAll().then(res=>{
+            console.log(res)
+            lista=res.results
+            if (lista.length>0){
+            lista.forEach(element => {
+               
+                fetchdata(element.url).then(res=>{
                     
-                divi.style.backgroundImage=`url(${value.sprites.front_default})`
-                img.push(value.sprites.front_default)
-                document.body.appendChild(divi) 
+                    obj.push(res)
+                    const title=document.getElementById('number')
+            title.innerText='Pokemons en lista '+obj.length
                 })
-                
-                
-            })
+
+            });
+            
+        }
+            
         })
-       
-       })
-console.log(img)
-        })
+      function crearelementos(){
+
+      }
+      function quitarelementos(){
+
+      }
+      function filtrarpornombre(){
+        const name=document.getElementById('name')
+        console.log(name.value)
+        const newlist=obj.filter(element=>{
+            
+           if (element.forms[0].name==name.value) return true})
+        console.log(newlist)
+        return newlist
+
+      } 
+      function filtraportipo(){
         
+      } 
+      function cargarlista(){
+        obj.forEach(element=>{
+            const divi=document.createElement('div')
+            divi.setAttribute('id',element.forms[0].name)
+            divi.style.backgroundImage=`url(${element.sprites.front_default})`
+            divi.style.backgroundSize='cover'
+            divi.style.height='50px'
+            divi.style.width='50px'
+            divi.innerText=element.forms[0].name
+            document.body.appendChild(divi)
+        })
+      }         
+                   
+                
+
+                
+        
+/* obj.forEach(elem=>{
+    const divi=document.createElement('div')
+    divi.setAttribute('id',elem.forms[0].name)
+    const title=document.createElement('h3')
+    const imgurl="url('')"
+}) */
 
     </script>
 
