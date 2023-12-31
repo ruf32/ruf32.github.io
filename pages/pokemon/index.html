@@ -13,7 +13,8 @@
             padding: 5px;
             font-size: x-small;
         }
-        body{
+       
+        .Cardlsit{
             display: grid;
             grid-template-columns: repeat(18,75px);
         }
@@ -23,6 +24,7 @@
     <h1 id="number"> </h1>
     
     <button onclick="cargarlista()">Cargar lista</button>
+    <div class="Cardlsit" id="Cards"></div>
     <script>
         let lista=[]
         const obj=[]
@@ -81,11 +83,10 @@
             const divi=document.createElement('div')
             divi.setAttribute('id',element.forms[0].name)
             divi.style.backgroundImage=`url(${element.sprites.front_default})`
-            divi.style.backgroundSize='cover'
-            divi.style.height='50px'
-            divi.style.width='50px'
+           
             divi.innerText=element.forms[0].name
-            document.body.appendChild(divi)
+            const principal=document.getElementById('Cards')
+            principal.appendChild(divi)
         })
       }         
                    
