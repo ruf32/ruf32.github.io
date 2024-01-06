@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
-            height: 150px;
-            width:150px;
-            background-size:contain;
-            background-repeat: no-repeat;
-            padding: 5px;
-            
-        }
-       
-        .Cardlsit{
-            display: grid;
-            grid-template-columns: repeat(8,175px);
-        }
+       .Cardlsit {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 5px;
+    font-size: x-small;
+}
     </style>
 </head>
 <body>
@@ -86,8 +85,8 @@
         }
         function generarpokname(){
                 const ip=document.getElementById("nombre")
-               let nombre=""
-               nombre=ip.value
+              
+               let nombre=ip.value.toLowerCase()
                 console.log(nombre)
               
             fetchdata(nombre.toLowerCase()).then((res)=>{
