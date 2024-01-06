@@ -31,13 +31,17 @@
 
     </form>
     <form action="">
-        <input type="text" id="nombre">
+        <input type="text" id="nombre" oninput="transformarAMinusculas()">
         <button type="button" onclick="generarpokname()">Genera pokemon por nombre</button>
 
     </form>
     <div class="Cardlsit" id="Cards"></div>
     <script>
-       
+       function transformarAMinusculas() {
+    let inputElement = document.getElementById("nombre");
+    let textoEnMinusculas = inputElement.value.toLowerCase();
+    inputElement.value = textoEnMinusculas;
+}
         async function fetchdata(number){
         console.log("https://pokeapi.co/api/v2/pokemon/"+number+"/")
            const fetch1= await fetch("https://pokeapi.co/api/v2/pokemon/"+number+"/")
@@ -82,10 +86,11 @@
         }
         function generarpokname(){
                 const ip=document.getElementById("nombre")
-                al=ip.value
-                
+               let nombre=""
+               nombre=ip.value
+                console.log(nombre)
               
-            fetchdata(al).then((res)=>{
+            fetchdata(nombre.toLowerCase()).then((res)=>{
                 console.log(res)
                 const divi=document.createElement('div')
             divi.setAttribute('id',res.forms[0].name)
