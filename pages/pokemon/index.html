@@ -6,59 +6,101 @@
     <title>Document</title>
     <style>
         div{
-            height: 50px;
-            width:70px;
+            height: 150px;
+            width:150px;
             background-size:contain;
             background-repeat: no-repeat;
             padding: 5px;
-            font-size: x-small;
+            
         }
        
         .Cardlsit{
             display: grid;
-            grid-template-columns: repeat(18,75px);
+            grid-template-columns: repeat(8,175px);
         }
     </style>
 </head>
 <body>
     <h1 id="number"> </h1>
     
-    <button onclick="cargarlista()">Cargar lista</button>
+    <button onclick="generarpok()">generar pokemon aleatorio</button>
+    
+    <form action="">
+        <input type="number" id="num1" max="1024"min="1">
+        <button type="button" onclick="generarpoknumber()">Genera pokemon por numero</button>
+
+    </form>
+    <form action="">
+        <input type="text" id="nombre">
+        <button type="button" onclick="generarpokname()">Genera pokemon por nombre</button>
+
+    </form>
     <div class="Cardlsit" id="Cards"></div>
     <script>
-        let lista=[]
-        const obj=[]
-        async function fetchdataAll(){
-            const fetch1= await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-            const res= await fetch1.json()
-            return res
-        }
-        async function fetchdata(url){
-           const fetch1= await fetch(url)
+       
+        async function fetchdata(number){
+        console.log("https://pokeapi.co/api/v2/pokemon/"+number+"/")
+           const fetch1= await fetch("https://pokeapi.co/api/v2/pokemon/"+number+"/")
            const res= await fetch1.json()
            return res
         }
-        function name(param){
-            console.log(param)
-        }
-        fetchdataAll().then(res=>{
+        let al=(Math.floor(Math.random()*1023))+1
+       console.log(al)
+        function generarpok(){
+            fetchdata(al).then((res)=>{
+                console.log(res)
+                const divi=document.createElement('div')
+            divi.setAttribute('id',res.forms[0].name)
+            divi.style.backgroundImage=`url(${res.sprites.front_default})`
            
-            lista=res.results
-            if (lista.length>0){
-            lista.forEach(element => {
-               
-                fetchdata(element.url).then(res=>{
-                    
-                    obj.push(res)
-                    const title=document.getElementById('number')
-            title.innerText='Pokemons en lista '+obj.length
-                })
-
-            });
+            divi.innerText=res.forms[0].name
+            const principal=document.getElementById('Cards')
+            principal.appendChild(divi)
+            al=Math.floor(Math.random()*1023)+1
+            })
+            
+        }    
+        function generarpoknumber(){
+                const ip=document.getElementById("num1")
+                const name=parseInt(ip.value)
+                
+            if(name>=1&&name<=1024){
+            fetchdata(name).then((res)=>{
+                console.log(res)
+                const divi=document.createElement('div')
+            divi.setAttribute('id',res.forms[0].name)
+            divi.style.backgroundImage=`url(${res.sprites.front_default})`
+           
+            divi.innerText=res.forms[0].name
+            const principal=document.getElementById('Cards')
+            principal.appendChild(divi)
+            al=Math.floor(Math.random()*1023)+1
+            }).catch(error=>{
+                console.log(error)
+            })
+        }else alert("pokemon entre 1 y 1024")
+        }
+        function generarpokname(){
+                const ip=document.getElementById("nombre")
+                al=ip.value
+                
+              
+            fetchdata(al).then((res)=>{
+                console.log(res)
+                const divi=document.createElement('div')
+            divi.setAttribute('id',res.forms[0].name)
+            divi.style.backgroundImage=`url(${res.sprites.front_default})`
+           
+            divi.innerText=res.forms[0].name
+            const principal=document.getElementById('Cards')
+            principal.appendChild(divi)
+            al=Math.floor(Math.random()*1023)+1
+            }).catch(error=>{
+                alert("pokemon no valido")
+            })
             
         }
-            
-        })
+
       function crearelementos(){
 
       }
