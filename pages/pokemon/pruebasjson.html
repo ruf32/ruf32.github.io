@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            display:grid;
+            grid-template-columns: repeat(8,175px);
+        }
+        div{
+            height: 150px;
+            width: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -14,13 +26,58 @@ let lista=[]
             const fet= await fetch("https://ruf32.github.io/pages/pokemon/pokein.json")
             return await fet.json()
         }
-        async function dataone(url){
-            const fet2= await fetch (url)
-            return await fet2.json()
-        }
+       function mostrartooltip(nindex){
+        const index=parseInt(nindex)
+           // Crear un elemento div para el tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    
+    // Configurar el contenido del tooltip (puedes personalizar esto según tus necesidades)
+    tooltip.innerHTML = `Nombre: ${lista[index].name}
+    <br>hp: ${lista[index].name}
+    <br>atk:${lista[index].atk}
+    <br>def:${lista[index].def}
+    <br>speed:${lista[index].speed}
+    <br>specialatk:${lista[index].specialatk}
+    <br>specialdef:${lista[index].specialdef}`;
+    
+    // Establecer la posición del tooltip
+    const rect = elemento.getBoundingClientRect();
+    tooltip.style.top = `${rect.bottom + window.scrollY}px`;
+    tooltip.style.left = `${rect.left + window.scrollX}px`;
+
+    // Agregar el tooltip al cuerpo del documento
+    document.body.appendChild(tooltip);
+
+    // Agregar evento para ocultar el tooltip al salir del elemento
+    elemento.addEventListener('mouseleave', () => {
+        // Eliminar el tooltip del DOM al salir del elemento
+        tooltip.remove();
+    });
+       }
         dataall().then(res=>{
            lista=res
-        }).finally(()=>console.log('pokemons cargados'+lista.length))
+          
+           lista.forEach((element,index)=>{
+            const divi=document.createElement('div')
+            divi.style.backgroundImage=`url(${element.sprite})`
+            divi.setAttribute('title', `Nombre: ${element.name}
+    hp: ${element.hp}
+    atk:${element.atk}
+    def:${element.def}
+    speed:${element.speed}
+    specialatk:${element.specialatk}
+    specialdef:${element.specialdef}`)
+            divi.setAttribute('index',index)
+           
+            document.body.appendChild(divi)
+        })
+        
+        }).finally(()=>{
+        
+    
+    }
+        )
 
         /* dataall().then(res=>{
             lista=res.results
