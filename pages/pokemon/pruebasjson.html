@@ -8,10 +8,10 @@
 <body>
     <script>
 let lista=[]
-const obj=[]
+
 
         async function dataall(){
-            const fet= await fetch("./pokein.json")
+            const fet= await fetch("https://ruf32.github.io/pages/pokemon/pokein.json")
             return await fet.json()
         }
         async function dataone(url){
@@ -19,8 +19,9 @@ const obj=[]
             return await fet2.json()
         }
         dataall().then(res=>{
-            console.log(res)
-        })
+           lista=res
+        }).finally(()=>console.log('pokemons cargados'+lista.length))
+
         /* dataall().then(res=>{
             lista=res.results
             
