@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let lista=[]
+const obj=[]
+
+        async function dataall(){
+            const fet= await fetch("./pokein.json")
+            return await fet.json()
+        }
+        async function dataone(url){
+            const fet2= await fetch (url)
+            return await fet2.json()
+        }
+        dataall().then(res=>{
+            console.log(res)
+        })
+        /* dataall().then(res=>{
+            lista=res.results
+            
+            if (lista.length>0){
+                lista.forEach(element => {
+                    console.log(element.url)
+                 dataone(element.url).then(res=>{
+                    console.log(res)
+                    const divi=document.createElement('div')
+                    const lab1=document.createElement('p')
+                    lab1.innerText="{\"name\":\""+res.forms[0].name+
+                    "\",\"sprite\":\""+res.sprites.front_default+
+                    "\",\"hp\":"+res.stats[0].base_stat+
+                    ",\"atk\":"+res.stats[1].base_stat+
+                    ",\"def\":"+res.stats[2].base_stat+
+                    ",\"speed\":"+res.stats[5].base_stat+
+                    ",\"specialatk\":"+res.stats[3].base_stat+
+                    ",\"specialdef\":"+res.stats[4].base_stat+"},"
+                   
+                    divi.appendChild(lab1)
+                    document.body.appendChild(divi)  
+                  }) 
+                  
+                }); */
+          /*        
+            }
+        }) */
+    </script>
+</body>
+</html>
