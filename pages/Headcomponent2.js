@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const a2 = document.createElement('a');
     a2.setAttribute('class', 'nav-link');
-    a2.href = './pages/angproject.html';
+    a2.href = './angproject.html';
     a2.innerText = 'Angular project';
 
     li2.appendChild(a2);
