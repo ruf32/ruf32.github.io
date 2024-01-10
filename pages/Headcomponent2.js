@@ -73,17 +73,18 @@ document.addEventListener('DOMContentLoaded', function() {
     ulDropdown.setAttribute('class', 'dropdown-menu');
 
     const proyectos = ['Java', 'Php', 'Javascript', 'Angular + Typescript', 'Vue + React', 'Idiomas antiguos(Pascal,Basic)'];
-
-    proyectos.forEach(proyecto => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.setAttribute('class', 'dropdown-item');
-        a.href = `./pages/${proyecto.toLowerCase()}.html`;
-        a.innerText = proyecto;
-
-        li.appendChild(a);
-        ulDropdown.appendChild(li);
-    });
+    const pages=['java','php','javascript','angular','react','idiomas']
+        proyectos.forEach((proyecto,index) => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.setAttribute('class', 'dropdown-item');
+            a.href = `./${pages[index]}.html`;
+            a.innerText = proyecto;
+    
+            li.appendChild(a);
+            ulDropdown.appendChild(li);
+        });
+    
 
     liDropdown.appendChild(aDropdown);
     liDropdown.appendChild(ulDropdown);
