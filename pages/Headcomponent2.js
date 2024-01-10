@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const brand = document.createElement('a');
     brand.setAttribute('class', 'navbar-brand');
-    brand.href = '#';
-    brand.innerText = 'Bienvenido';
+    brand.href = '../index.html';
+    brand.innerText = 'Inicio';
 
     const toggleButton = document.createElement('button');
     toggleButton.setAttribute('class', 'navbar-toggler');
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     collapseDiv.appendChild(ul);
 
     const img = document.createElement('img');
-    img.src = './asstes/curri1.jpg';
+    img.src = '../../assets/curri1.jpg';
     img.alt = 'yo+';
     img.style.height = '50px';
     img.style.width = '50px';
