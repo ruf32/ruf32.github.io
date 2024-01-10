@@ -4,7 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const nav = document.createElement('nav');
     nav.setAttribute('class', 'navbar navbar-expand-lg bg-body-tertiary');
-
+    if (nav) {
+        nav.style.position = 'fixed';
+        nav.style.top = '0';
+        nav.style.width = '100%';
+        nav.style.zIndex = '1000';
+    }
     const container = document.createElement('div');
     container.setAttribute('class', 'container-fluid');
 
