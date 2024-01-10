@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const a1 = document.createElement('a');
     a1.setAttribute('class', 'nav-link active');
     a1.setAttribute('aria-current', 'page');
-    a1.href = './asstes/Curriculum.pdf';
+    a1.href = '../asstes/Curriculum.pdf';
     a1.innerText = 'Curriculum';
 
     li1.appendChild(a1);
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     collapseDiv.appendChild(ul);
 
     const img = document.createElement('img');
-    img.src = '../../assets/curri1.jpg';
+    img.src = '../asstes/curri1.jpg';
     img.alt = 'yo+';
     img.style.height = '50px';
     img.style.width = '50px';
