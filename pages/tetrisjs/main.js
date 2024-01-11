@@ -1,26 +1,29 @@
-import './style.css'
-//canvas definition 
-const canvas=document.querySelector("canvas")
- const context=canvas.getContext("2d")
- const $score=document.querySelector('span')
- const $section=document.querySelector('section')
+
+ //canvas definition 
+ var level=0
+ let score=0
+ 
  const block_size=20
  const Board_height=30
  const Board_with=14
+ 
+ const board=Array(Board_height).fill().map(()=>Array(Board_with).fill(0))
+ function initial(){window.canvas=document.querySelector("canvas")
+ window.context=canvas.getContext("2d")
+window.$score=document.querySelector('span')
+
+ 
+//board
  canvas.height=Board_height*block_size
  canvas.width=Board_with*block_size
  context.scale(block_size,block_size)
-  //board
-  const board=[]
-  let line=[]
-  let score=0
-  for (let i=0;i<30;i++){
-   for (let j=0;j<14;j++){
- line.push(0);
-   }
-   board.push(line)
-   line=[]
-   }
+ 
+ 
+  
+  }
+ 
+  
+   
   //piezas
  
   const Piece_shaps=[
@@ -40,7 +43,15 @@ const canvas=document.querySelector("canvas")
       [0,1,1]
     ],
     [
+      [0,1,1],
+      [1,1,0]
+    ],
+    [
       [0,0,1],
+      [1,1,1]
+    ],
+    [
+      [1,0,0],
       [1,1,1]
     ]
   ]
@@ -57,7 +68,8 @@ const canvas=document.querySelector("canvas")
   const deltatime=time-lastime
   lastime=time
   dropcounter+=deltatime
-  if (dropcounter>1000){
+  if (dropcounter>(1000-(level*100))){
+    
     piece.position.y++
     dropcounter=0
     if (collision()){
@@ -163,6 +175,7 @@ row.push(piece.shape[j][i])
   if (collision()){
     window.alert('game over')
     board.forEach(row=>row.fill(0))
+    score=0
   }
  }
  function lineremove(){
@@ -180,21 +193,34 @@ row.push(piece.shape[j][i])
     
     const newline=Array(Board_with).fill(0)
     board.unshift(newline)
-    score+=10
+    score+=10*level
    })
 
 
  }
- $section.addEventListener('click',()=>{
-  $section.remove()
-  update()
-  const audio=new Audio('Tetris.mp3')
-  console.log(audio.length)
-  audio.volume=0.7
-  audio.loop=true
-  audio.play
+ function levelset(){
+ initial()
+  level=document.getElementById('lvl').value
+ if (!level){level=1}
+  const formr=document.querySelector('form')
+  formr.remove()
+  var audioContainer = document.getElementById("audioContainer");
 
-})
+var audioElement = document.createElement("audio");
+audioElement.controls = true;
+audioElement.autoplay = true;
+    audioElement.loop = true;
+    audioElement.volume=0.4;
+var sourceElement = document.createElement("source");
+sourceElement.src = "Tetris.mp3"; 
+sourceElement.type = "audio/mp3";
+
+audioElement.appendChild(sourceElement);
+audioContainer.appendChild(audioElement);
+  update()
+  
+
+}
 
 
  
