@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
     for(key in contac){
         if (contac.hasOwnProperty(key)){
             const div=document.createElement('div')
-            div.style.height='50px'
-            div.style.width='50px'
+            div.style.height='35px'
+            div.style.width='35px'
             div.href=contac[key]
        
         div.setAttribute('title',key)
@@ -149,11 +149,11 @@ document.addEventListener('DOMContentLoaded', function() {
         foot.style.bottom = '0';
         foot.style.width = '100%';
         foot.style.zIndex = '1000';
-        foot.style.height='80px';
+        foot.style.height='40px';
        
         foot.style.display='grid';
         foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`; // Crea una columna por cada ícono
-        foot.style.gridGap = '10px'
+        
     }
     document.body.appendChild(foot)
     

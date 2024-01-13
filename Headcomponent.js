@@ -151,8 +151,8 @@ const pages=['java','php','javascript','angular','react','idiomas']
         foot.style.bottom = '0';
         foot.style.width = '100%';
         foot.style.zIndex = '1000';
-        foot.style.height='80px';
-       foot.style.marginLeft='10px'
+        foot.style.height='40px';
+      
         foot.style.display='grid';
         foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`;
 
