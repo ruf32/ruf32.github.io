@@ -152,9 +152,10 @@ const pages=['java','php','javascript','angular','react','idiomas']
         foot.style.width = '100%';
         foot.style.zIndex = '1000';
         foot.style.height='40px';
-      
+        foot.style.alignItems='center';
+        foot.style.justifyContent='center';
         foot.style.display='grid';
-        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`;
+        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 100px)`;
 
     }
     document.body.appendChild(foot)

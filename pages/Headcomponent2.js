@@ -150,9 +150,10 @@ document.addEventListener('DOMContentLoaded', function() {
         foot.style.width = '100%';
         foot.style.zIndex = '1000';
         foot.style.height='40px';
-       
+       foot.style.alignItems='center';
+       foot.style.justifyContent='center';
         foot.style.display='grid';
-        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`; // Crea una columna por cada ícono
+        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 100px)`; // Crea una columna por cada ícono
         
     }
     document.body.appendChild(foot)
