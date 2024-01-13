@@ -117,5 +117,46 @@ const pages=['java','php','javascript','angular','react','idiomas']
     nav.appendChild(container);
 
     body.appendChild(nav);
+    const foot=document.createElement('footer')
+    const contac={
+        linkeid:'https://www.linkedin.com/in/rafa-rodri-3370a72a5',
+        whatssap:'https://api.whatsapp.com/send?phone=34635591033&text=Hola%2C quisiera cotactar con usted',
+        facebook:'https://www.facebook.com/Rafillarodri'
+       
+    }
+    const icons=['./asstes/linkedin.png','./asstes/whatsapp.png','./asstes/facebook.png']
+    let index=0
+    for(key in contac){
+        if (contac.hasOwnProperty(key)){
+            const div=document.createElement('div')
+            div.style.height='50px'
+            div.style.width='50px'
+            div.href=contac[key]
+       
+        div.setAttribute('title',key)
+        div.style.backgroundImage=`url("${icons[index]}")`
+        
+        
+        index++
+      div.style.backgroundSize='cover'
+    div.onclick=function(){
+       const key2=div.getAttribute('title')
+        window.open(contac[key2])
+    }
+        foot.appendChild(div)
+
+    }}
+    if (foot) {
+        foot.style.position = 'fixed';
+        foot.style.bottom = '0';
+        foot.style.width = '100%';
+        foot.style.zIndex = '1000';
+        foot.style.height='80px';
+       
+        foot.style.display='grid';
+        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`; // Crea una columna por cada ícono
+        foot.style.gridGap = '10px'
+    }
+    document.body.appendChild(foot)
 };
 
