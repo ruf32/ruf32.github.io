@@ -120,7 +120,7 @@ const pages=['java','php','javascript','angular','react','idiomas']
     const foot=document.createElement('footer')
     const contac={
         linkeid:'https://www.linkedin.com/in/rafa-rodri-3370a72a5',
-        whatssap:'https://api.whatsapp.com/send?phone=34635591033&text=Hola%2C quisiera cotactar con usted',
+        whatssap:'https://api.whatsapp.com/send?phone=34635591033&text=Hola%2C quisiera contactar con usted',
         facebook:'https://www.facebook.com/Rafillarodri'
        
     }
@@ -129,8 +129,8 @@ const pages=['java','php','javascript','angular','react','idiomas']
     for(key in contac){
         if (contac.hasOwnProperty(key)){
             const div=document.createElement('div')
-            div.style.height='50px'
-            div.style.width='50px'
+            div.style.height='35px'
+            div.style.width='35px'
             div.href=contac[key]
        
         div.setAttribute('title',key)
@@ -152,10 +152,10 @@ const pages=['java','php','javascript','angular','react','idiomas']
         foot.style.width = '100%';
         foot.style.zIndex = '1000';
         foot.style.height='80px';
-       
+       foot.style.marginLeft='150px'
         foot.style.display='grid';
-        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`; // Crea una columna por cada ícono
-        foot.style.gridGap = '10px'
+        foot.style.gridTemplateColumns = `repeat(${Object.keys(contac).length}, 1fr)`;
+
     }
     document.body.appendChild(foot)
 };
