@@ -9,11 +9,11 @@
             height: 150px;
             width:150px;
             background-size:contain;
+           
             background-repeat: no-repeat;
             padding: 5px;
-            
+            background-image: url('./Poke.png')
         }
-       
         .Cardlsit{
             display: grid;
             grid-template-columns: repeat(4,175px);
@@ -73,8 +73,12 @@
                 console.log(res)
                 const divi=document.createElement('div')
             divi.setAttribute('id',res.forms[0].name)
-            divi.style.backgroundImage=`url(${res.sprites.front_default})`
-           
+           const img=document.createElement('img')
+           img.src=res.sprites.front_default
+           divi.style.backgroundImage=`url(./Poke.png)`
+           divi.st
+           img.style.zIndex=100
+           divi.appendChild(img)
             divi.innerText=res.forms[0].name
             const principal=document.getElementById('Cards')
             principal.appendChild(divi)
