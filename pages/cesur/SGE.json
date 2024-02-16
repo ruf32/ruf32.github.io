@@ -1,11 +1,11 @@
-[{"id":0,"enunciado":"Los diseños de los informes en JasperSoft se organizan en:","respuestas":["Bandas","Directorios","Artículos"],"solucion":" Bandas"},
-{"id":1,"enunciado":"El módulo de Odoo que permite relacionar agentes comerciales a clientes se denomina:","respuestas":["Compras.","Ventas.","Agentes comerciales."],"solucion":" Ventas."},
-{"id":2,"enunciado":"Realizar un SELECT en JaperSoft Studio durante la creación de un nuevo informe nos facilita:","respuestas":["El diseño del informe.","Tener accesibles los datos necesarios para nuestro informe.","Ninguna de las anteriores."],"solucion":" Tener accesibles los datos necesarios para nuestro informe."},
-{"id":3,"enunciado":"El módulo de Odoo que permite gestionar las contrataciones se denomina:","respuestas":["Personas.","Contabilidad.","Recursos humanos."],"solucion":" Recursos humanos."},
-{"id":4,"enunciado":"El módulo de Odoo que permite controlar el inventario de una empresa se denomina:","respuestas":["Almacen.","Compras.","Inventario."],"solucion":" Almacen."},
-{"id":5,"enunciado":"¿Se pueden adaptar los informes de Odoo?:","respuestas":["Solo si lo hace un personal cualificado por Odoo","Si","No, ninguno"],"solucion":" Si"},
+[{"id":0,"enunciado":"Los diseños de los informes en JasperSoft se organizan en:","respuestas":["Bandas","Directorios","Artículos"],"solucion":"Bandas"},
+{"id":1,"enunciado":"El módulo de Odoo que permite relacionar agentes comerciales a clientes se denomina:","respuestas":["Compras.","Ventas.","Agentes comerciales."],"solucion":"Ventas"},
+{"id":2,"enunciado":"Realizar un SELECT en JaperSoft Studio durante la creación de un nuevo informe nos facilita:","respuestas":["El diseño del informe.","Tener accesibles los datos necesarios para nuestro informe.","Ninguna de las anteriores."],"solucion":"Tener accesibles los datos necesarios para nuestro informe"},
+{"id":3,"enunciado":"El módulo de Odoo que permite gestionar las contrataciones se denomina:","respuestas":["Personas.","Contabilidad.","Recursos humanos."],"solucion":"Recursos humanos"},
+{"id":4,"enunciado":"El módulo de Odoo que permite controlar el inventario de una empresa se denomina:","respuestas":["Almacen.","Compras.","Inventario."],"solucion":"Almacen"},
+{"id":5,"enunciado":"¿Se pueden adaptar los informes de Odoo?:","respuestas":["Solo si lo hace un personal cualificado por Odoo","Si","No, ninguno"],"solucion":"Si"},
 {"id":6,"enunciado":"¿Se pueden adaptar los formularios de Odoo?:","respuestas":["Solo si creamos un nuevo módulo","No ninguna","Si"],"solucion":" Si"},
-{"id":7,"enunciado":"¿Qué tabla contiene información principal del producto con Odoo?:","respuestas":["product_template.","res_parther.","product_supplierinfo."],"solucion":" product_template."},
-{"id":8,"enunciado":"Una empresa cuyo capital está en manos del estado se denomina:","respuestas":["Pública.","Terciaria.","Primaria."],"solucion":" Pública."},
-{"id":9,"enunciado":"Todas las empresas necesitan los mismos módulos:","respuestas":["si, si son del mismo sector","es falso","es correcto"],"solucion":" es falso"}
+{"id":7,"enunciado":"¿Qué tabla contiene información principal del producto con Odoo?:","respuestas":["product_template.","res_parther.","product_supplierinfo."],"solucion":"product_template"},
+{"id":8,"enunciado":"Una empresa cuyo capital está en manos del estado se denomina:","respuestas":["Pública.","Terciaria.","Primaria."],"solucion":"Pública"},
+{"id":9,"enunciado":"Todas las empresas necesitan los mismos módulos:","respuestas":["si, si son del mismo sector","es falso","es correcto"],"solucion":"es falso"}
 ]
