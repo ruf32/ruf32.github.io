@@ -76,7 +76,7 @@ console.log(al)
     console.log(respuestasUsuario[8].respuestaSeleccionada)
     const div3=document.createElement('div')
     this.al.forEach((element,index)=>{
-        if (element.solucion==respuestasUsuario[index].respuestaSeleccionada) x++
+        if (element.solucion.includes(respuestasUsuario[index].respuestaSeleccionada)) x++
         else{
             const resp=document.createElement('p')
             resp.innerText="Respuesta n"+(index+1)+" erroanea solucion: "+element.solucion
