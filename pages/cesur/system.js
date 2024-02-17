@@ -6,12 +6,56 @@ class Question {
         this.solucion = solucion;
     }
 }
+//bloque seleccion
+
+path=''
 let lista
 let selection=0
+document.addEventListener("DOMContentLoaded", function() {
+const div7=document.createElement('div')
+const direcciones=["PSP.json","SGE.json"]
+const butt2=document.createElement('button')
+butt2.innerText="EMPEZAR"
+direcciones.forEach(element=>{
+    const radioBtn = document.createElement("input");
+        radioBtn.type = "radio";
+        radioBtn.name = "Group1" 
+        radioBtn.value = element;
+        div7.appendChild(radioBtn)
+        const label = document.createElement("label");
+        label.textContent = element;
+        div7.appendChild(label);
+
+        div7.appendChild(document.createElement("br"));
+})
+
+butt2.addEventListener("click",function(){
+    const radios = document.querySelectorAll(`input[name="Group1"]`);
+      
+    // Iterar sobre los radio buttons para encontrar el seleccionado
+    radios.forEach(radio => {
+        if (radio.checked) {
+            
+          path=radio.value
+            
+        } 
+        
+})
+document.body.removeChild(div7)
+comenzar() 
+})
+div7.appendChild(butt2)
+document.body.appendChild(div7)
+})
+
+
+
 async function fet(){
-    const lista=await fetch('https://ruf32.github.io/pages/cesur/PSP.json')
+    
+    const lista=await fetch('https://ruf32.github.io/pages/cesur/'+path)
     return await lista.json()
 }
+function comenzar(){
 
 fet().then(res=>{
     lista=res
@@ -69,7 +113,7 @@ al.forEach((element,index)=>{
     document.body.appendChild(div5)
 })
     
-})
+})}
 function Send() {
    
     respuestasUsuario.length = 0; // Limpiar el array antes de agregar nuevas respuestas
