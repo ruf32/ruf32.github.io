@@ -19,7 +19,7 @@ fet().then(res=>{
 al=[]
 
 const tamaño=lista.length
-console.log(tamaño)
+
 for (i=0;i<tamaño;i++){
     let ale=parseInt(Math.random()*lista.length-1)
     al.push(lista[ale])
@@ -32,7 +32,7 @@ for (i=0;i<tamaño;i++){
 
 
 }
-console.log(al.length)
+
 
 div5=document.getElementById('div5')
 respuestasUsuario = []
@@ -56,7 +56,7 @@ al.forEach((element,index)=>{
         radioBtn.addEventListener("change", function() {
             if (this.checked) {
                 selection += 1;
-                console.log(selection)
+               
                 if (selection>=al.length-1){
                    const butt= document.getElementById('butt')
                     butt.style.display="block"
