@@ -7,8 +7,9 @@ class Question {
     }
 }
 let lista
+let selection=0
 async function fet(){
-    const lista=await fetch('https://ruf32.github.io/pages/cesur/SGE.json')
+    const lista=await fetch('https://ruf32.github.io/pages/cesur/PSP.json')
     return await lista.json()
 }
 
@@ -18,6 +19,7 @@ fet().then(res=>{
 al=[]
 
 const tamaño=lista.length
+console.log(tamaño)
 for (i=0;i<tamaño;i++){
     let ale=parseInt(Math.random()*lista.length-1)
     al.push(lista[ale])
@@ -30,13 +32,14 @@ for (i=0;i<tamaño;i++){
 
 
 }
+console.log(al.length)
 
-div5=document.createElement('div')
+div5=document.getElementById('div5')
 respuestasUsuario = []
-al.forEach(element=>{
+al.forEach((element,index)=>{
     const div=document.createElement('div')
     const enunciado=document.createElement('h3')
-    enunciado.innerText=element.enunciado
+    enunciado.innerText=(index+1)+" ."+element.enunciado
    div.appendChild(enunciado)
     
     element.respuestas.forEach(element2=>{
@@ -50,6 +53,16 @@ al.forEach(element=>{
         div.appendChild(label);
 
         div.appendChild(document.createElement("br"));
+        radioBtn.addEventListener("change", function() {
+            if (this.checked) {
+                selection += 1;
+                console.log(selection)
+                if (selection>=al.length-1){
+                   const butt= document.getElementById('butt')
+                    butt.style.display="block"
+                }
+            }
+        });
     })
     
     div5.appendChild(div)
@@ -58,6 +71,7 @@ al.forEach(element=>{
     
 })
 function Send() {
+   
     respuestasUsuario.length = 0; // Limpiar el array antes de agregar nuevas respuestas
 
     this.al.forEach(element => {
@@ -76,10 +90,16 @@ function Send() {
     })
     x=0
     y=0
-    
+    if (respuestasUsuario.length<al.length){
+        showPopup('faltan respuestas')
+    }
+    else{
    document.body.removeChild(div5)
    const div3=document.createElement('div')
-    this.al.forEach((element,index)=>{
+   div3.innerText="Erroneas"
+   console.log("respuestauser:"+respuestasUsuario.length)
+   index=0 
+   this.al.forEach(element=>{
         
         if (element.solucion.includes(respuestasUsuario[index].respuestaSeleccionada)) x++
         else{
@@ -89,12 +109,32 @@ function Send() {
             div3.appendChild(resp)
             div3.appendChild(document.createElement("br"))
             y++
+            
         }
-        
+        index++
     })
    
     const h=document.createElement('h2')
     h.innerText="Respuestas acertadas "+x+",Respuestas falladas:"+y
     div3.appendChild(h)
     document.body.appendChild(div3)
+}}
+function showPopup(message) {
+    const popup = document.getElementById("popup-notification");
+    const popupMessage = document.getElementById("popup-message");
+
+    // Establecer el mensaje de la notificación
+    popupMessage.textContent = message;
+
+    // Mostrar la notificación
+    popup.style.display = "block";
 }
+
+// Función para cerrar la notificación pop-up
+function closePopup() {
+    const popup = document.getElementById("popup-notification");
+
+    // Ocultar la notificación
+    popup.style.display = "none";
+}
+

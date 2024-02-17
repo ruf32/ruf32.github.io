@@ -7,6 +7,18 @@
     <script src="system.js"></script>
 </head>
 <body>
-    <button onclick="Send()">Enviar</button>
+   <div id="div5">
+
+   </div>
+   <div id="popup-notification" style="display: none;position: fixed;
+   top: 0;
+   left: 50%;justify-self:center">
+    <p id="popup-message" style="font-size: x-large;color: red;"></p>
+    <button onclick="closePopup()">Cerrar popinfo</button>
+</div>
+
+    <button onclick="Send()" style="display:none ;position: fixed;
+    top: 0;
+    left: 50%;justify-self:center" id="butt" >Enviar</button>
 </body>
 </html>
