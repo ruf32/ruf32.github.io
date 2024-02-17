@@ -56,36 +56,25 @@ async function fet(){
     return await lista.json()
 }
 function comenzar(){
-
 fet().then(res=>{
     lista=res
-    
-al=[]
-
+    al=[]
 const tamaño=lista.length
 
 for (i=0;i<tamaño;i++){
     let ale=parseInt(Math.random()*lista.length-1)
     al.push(lista[ale])
-    
-    
     if (ale<lista.length-1) {
-       
         lista.splice(ale,1)}
     else {lista.pop()}
-
-
 }
-
-
 div5=document.getElementById('div5')
 respuestasUsuario = []
 al.forEach((element,index)=>{
     const div=document.createElement('div')
     const enunciado=document.createElement('h3')
     enunciado.innerText=(index+1)+" ."+element.enunciado
-   div.appendChild(enunciado)
-    
+   div.appendChild(enunciado)    
     element.respuestas.forEach(element2=>{
         const radioBtn = document.createElement("input");
         radioBtn.type = "radio";
@@ -95,12 +84,10 @@ al.forEach((element,index)=>{
         const label = document.createElement("label");
         label.textContent = element2;
         div.appendChild(label);
-
         div.appendChild(document.createElement("br"));
         radioBtn.addEventListener("change", function() {
             if (this.checked) {
-                selection += 1;
-               
+                selection += 1;               
                 if (selection>=al.length-1){
                    const butt= document.getElementById('butt')
                     butt.style.display="block"
@@ -108,23 +95,16 @@ al.forEach((element,index)=>{
             }
         });
     })
-    
     div5.appendChild(div)
     document.body.appendChild(div5)
 })
     
 })}
 function Send() {
-   
-    respuestasUsuario.length = 0; // Limpiar el array antes de agregar nuevas respuestas
-
+    respuestasUsuario.length = 0;
     this.al.forEach(element => {
-        // Obtener los radio buttons correspondientes a la pregunta actual
-        const radios = document.querySelectorAll(`input[name="Respuesta_${element.id}"]`);
-        
-        
-        // Iterar sobre los radio buttons para encontrar el seleccionado
-        radios.forEach(radio => {
+       const radios = document.querySelectorAll(`input[name="Respuesta_${element.id}"]`);
+       radios.forEach(radio => {
             if (radio.checked) {
               
                 respuestasUsuario.push({ preguntaId: element.id, respuestaSeleccionada: radio.value });
@@ -141,19 +121,15 @@ function Send() {
    document.body.removeChild(div5)
    const div3=document.createElement('div')
    div3.innerText="Erroneas"
-   console.log("respuestauser:"+respuestasUsuario.length)
    index=0 
    this.al.forEach(element=>{
-        
         if (element.solucion.includes(respuestasUsuario[index].respuestaSeleccionada)) x++
         else{
             const resp=document.createElement('p')
-           
             resp.innerText=element.enunciado+" : "+element.solucion
             div3.appendChild(resp)
             div3.appendChild(document.createElement("br"))
             y++
-            
         }
         index++
     })
@@ -166,19 +142,12 @@ function Send() {
 function showPopup(message) {
     const popup = document.getElementById("popup-notification");
     const popupMessage = document.getElementById("popup-message");
-
-    // Establecer el mensaje de la notificación
     popupMessage.textContent = message;
-
-    // Mostrar la notificación
     popup.style.display = "block";
 }
 
-// Función para cerrar la notificación pop-up
 function closePopup() {
     const popup = document.getElementById("popup-notification");
-
-    // Ocultar la notificación
     popup.style.display = "none";
 }
 
