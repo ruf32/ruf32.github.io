@@ -30,11 +30,12 @@ for (i=0;i<tamaño;i++){
 
 
 }
-console.log(al)
+
+div5=document.createElement('div')
 respuestasUsuario = []
 al.forEach(element=>{
     const div=document.createElement('div')
-    const enunciado=document.createElement('h2')
+    const enunciado=document.createElement('h3')
     enunciado.innerText=element.enunciado
    div.appendChild(enunciado)
     
@@ -50,13 +51,15 @@ al.forEach(element=>{
 
         div.appendChild(document.createElement("br"));
     })
-    document.body.appendChild(div)
+    
+    div5.appendChild(div)
+    document.body.appendChild(div5)
 })
     
 })
 function Send() {
     respuestasUsuario.length = 0; // Limpiar el array antes de agregar nuevas respuestas
-console.log(al)
+
     this.al.forEach(element => {
         // Obtener los radio buttons correspondientes a la pregunta actual
         const radios = document.querySelectorAll(`input[name="Respuesta_${element.id}"]`);
@@ -73,19 +76,23 @@ console.log(al)
     })
     x=0
     y=0
-    console.log(respuestasUsuario[8].respuestaSeleccionada)
-    const div3=document.createElement('div')
+    
+   document.body.removeChild(div5)
+   const div3=document.createElement('div')
     this.al.forEach((element,index)=>{
+        
         if (element.solucion.includes(respuestasUsuario[index].respuestaSeleccionada)) x++
         else{
             const resp=document.createElement('p')
-            resp.innerText="Respuesta n"+(index+1)+" erroanea solucion: "+element.solucion
+           
+            resp.innerText=element.enunciado+" : "+element.solucion
             div3.appendChild(resp)
             div3.appendChild(document.createElement("br"))
             y++
         }
         
     })
+   
     const h=document.createElement('h2')
     h.innerText="Respuestas acertadas "+x+",Respuestas falladas:"+y
     div3.appendChild(h)
