@@ -59,7 +59,9 @@ async function fet(){
     const lista=await fetch('https://ruf32.github.io/pages/cesur/'+path)
     return await lista.json()
 }
+
 function comenzar(){
+    butt= document.getElementById('butt')
 fet().then(res=>{
     lista=res
     al=[]
@@ -93,7 +95,7 @@ al.forEach((element,index)=>{
             if (this.checked) {
                 selection += 1;               
                 if (selection>=al.length){
-                   const butt= document.getElementById('butt')
+                   
                     butt.style.display="block"
                     butt.classList.add('Butt1')
                 }
@@ -124,6 +126,7 @@ function Send() {
     }
     else{
    document.body.removeChild(div5)
+   document.body.removeChild(butt)
    const div3=document.createElement('div')
    if (y!=0){
    
