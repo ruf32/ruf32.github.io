@@ -13,17 +13,21 @@ let lista
 let selection=0
 document.addEventListener("DOMContentLoaded", function() {
 const div7=document.createElement('div')
-const direcciones=["PSP.json","SGE.json"]
+const direcciones=[
+    {archivo:"PSP.json",nombre:"Programación de servicios y procesos",nquest:30},
+    {archivo:"SGE.json",nombre:"Sistemas de Gestión Empresarial",nquest:10}]
 const butt2=document.createElement('button')
+butt2.classList.add('Butt1')
 butt2.innerText="EMPEZAR"
-direcciones.forEach(element=>{
+direcciones.forEach((element,index)=>{
     const radioBtn = document.createElement("input");
         radioBtn.type = "radio";
         radioBtn.name = "Group1" 
-        radioBtn.value = element;
+        radioBtn.value = element.archivo;
+        if (index==0) radioBtn.checked=true
         div7.appendChild(radioBtn)
         const label = document.createElement("label");
-        label.textContent = element;
+        label.textContent = element.nombre+" Banco:"+element.nquest;
         div7.appendChild(label);
 
         div7.appendChild(document.createElement("br"));
@@ -88,9 +92,10 @@ al.forEach((element,index)=>{
         radioBtn.addEventListener("change", function() {
             if (this.checked) {
                 selection += 1;               
-                if (selection>=al.length-1){
+                if (selection>=al.length){
                    const butt= document.getElementById('butt')
                     butt.style.display="block"
+                    butt.classList.add('Butt1')
                 }
             }
         });
@@ -120,6 +125,8 @@ function Send() {
     else{
    document.body.removeChild(div5)
    const div3=document.createElement('div')
+   if (y!=0){
+   
    div3.innerText="Erroneas"
    index=0 
    this.al.forEach(element=>{
@@ -133,7 +140,7 @@ function Send() {
         }
         index++
     })
-   
+}else x=al.length
     const h=document.createElement('h2')
     h.innerText="Respuestas acertadas "+x+",Respuestas falladas:"+y
     div3.appendChild(h)
