@@ -128,7 +128,7 @@ function Send() {
    document.body.removeChild(div5)
    document.body.removeChild(butt)
    const div3=document.createElement('div')
-   if (y!=0){
+   
    
    div3.innerText="Erroneas"
    index=0 
@@ -143,7 +143,7 @@ function Send() {
         }
         index++
     })
-}else x=al.length
+    
     const h=document.createElement('h2')
     h.innerText="Respuestas acertadas "+x+",Respuestas falladas:"+y
     div3.appendChild(h)
