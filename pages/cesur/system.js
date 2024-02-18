@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
 const div7=document.createElement('div')
 const direcciones=[
     {archivo:"PSP.json",nombre:"Programación de servicios y procesos",nquest:30},
-    {archivo:"SGE.json",nombre:"Sistemas de Gestión Empresarial",nquest:10}]
+    {archivo:"SGE.json",nombre:"Sistemas de Gestión Empresarial",nquest:10},
+    {archivo:"PMPD.json",nombre:"Programación Multimedia y Dispositivos Móviles",nquest:40}]
 const butt2=document.createElement('button')
 butt2.classList.add('Butt1')
 butt2.innerText="EMPEZAR"
