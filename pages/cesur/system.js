@@ -123,7 +123,7 @@ function Send() {
     x=0
     y=0
     if (respuestasUsuario.length<al.length){
-        showPopup('faltan respuestas')
+       alert.message("faltan respuestas")
     }
     else{
    document.body.removeChild(div5)
