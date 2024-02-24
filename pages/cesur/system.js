@@ -9,10 +9,12 @@ class Question {
 //bloque seleccion
 
 path=''
+value=10
 let lista
 let selection=0
 document.addEventListener("DOMContentLoaded", function() {
 const div7=document.createElement('div')
+const preguntas=[10,20,40,"todas"]
 const direcciones=[
     {archivo:"AD.json",nombre:"Acceso a datos",nquest:80},
     {archivo:"DI.json",nombre:"Desarrollo de interfaces",nquest:68},
@@ -36,10 +38,24 @@ direcciones.forEach((element,index)=>{
 
         div7.appendChild(document.createElement("br"));
 })
+div7.appendChild(document.createElement("br"));
+preguntas.forEach((element,index)=>{
+    const radioBtn = document.createElement("input");
+        radioBtn.type = "radio";
+        radioBtn.name = "Group2" 
+        radioBtn.value = element;
+        if (index==0) radioBtn.checked=true
+        div7.appendChild(radioBtn)
+        const label = document.createElement("label");
+        label.textContent = element;
+        div7.appendChild(label);
+
+        div7.appendChild(document.createElement("br"));
+})
 
 butt2.addEventListener("click",function(){
     const radios = document.querySelectorAll(`input[name="Group1"]`);
-      
+    const radios2=  document.querySelectorAll(`input[name="Group2"]`);
     // Iterar sobre los radio buttons para encontrar el seleccionado
     radios.forEach(radio => {
         if (radio.checked) {
@@ -47,8 +63,14 @@ butt2.addEventListener("click",function(){
           path=radio.value
             
         } 
-        
+      
 })
+radios2.forEach(radio => {
+    if (radio.checked) {
+        
+      value=radio.value
+        
+    } })
 document.body.removeChild(div7)
 comenzar() 
 })
@@ -69,8 +91,9 @@ function comenzar(){
 fet().then(res=>{
     lista=res
     al=[]
-const tamaño=lista.length
-
+    
+let tamaño=lista.length
+if (value!="todas") tamaño=value
 for (i=0;i<tamaño;i++){
     let ale=parseInt(Math.random()*lista.length-1)
     al.push(lista[ale])
@@ -126,7 +149,7 @@ function Send() {
     x=0
     y=0
     if (respuestasUsuario.length<al.length){
-       alert.message("faltan respuestas")
+      showPopup("Faltan respuestas")
     }
     else{
    document.body.removeChild(div5)
