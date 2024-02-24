@@ -14,8 +14,11 @@ let selection=0
 document.addEventListener("DOMContentLoaded", function() {
 const div7=document.createElement('div')
 const direcciones=[
-    {archivo:"PSP.json",nombre:"Programación de servicios y procesos",nquest:30},
-    {archivo:"SGE.json",nombre:"Sistemas de Gestión Empresarial",nquest:10},
+    {archivo:"AD.json",nombre:"Acceso a datos",nquest:80},
+    {archivo:"DI.json",nombre:"Desarrollo de interfaces",nquest:68},
+    {archivo:"LM.json",nombre:"Lenguaje de Marcas",nquest:98},
+    {archivo:"PSP.json",nombre:"Programación de servicios y procesos",nquest:82},
+    {archivo:"SGE.json",nombre:"Sistemas de Gestión Empresarial",nquest:110},
     {archivo:"PMDM.json",nombre:"Programación Multimedia y Dispositivos Móviles",nquest:89}]
 const butt2=document.createElement('button')
 butt2.classList.add('Butt1')
