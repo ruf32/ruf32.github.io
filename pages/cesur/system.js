@@ -16,12 +16,16 @@ document.addEventListener("DOMContentLoaded", function() {
 const div7=document.createElement('div')
 const preguntas=[10,20,40,"todas"]
 const direcciones=[
-    {archivo:"AD.json",nombre:"Acceso a datos",nquest:80},
-    {archivo:"DI.json",nombre:"Desarrollo de interfaces",nquest:68},
-    {archivo:"LM.json",nombre:"Lenguaje de Marcas",nquest:98},
-    {archivo:"PSP.json",nombre:"Programación de servicios y procesos",nquest:82},
-    {archivo:"SGE.json",nombre:"Sistemas de Gestión Empresarial",nquest:110},
-    {archivo:"PMDM.json",nombre:"Programación Multimedia y Dispositivos Móviles",nquest:89}]
+    {archivo:"AD.json",nombre:"DAM Acceso a datos",nquest:80},
+    {archivo:"DI.json",nombre:"DAM Desarrollo de interfaces",nquest:68},
+    {archivo:"LM.json",nombre:"DAM-DAWLenguaje de Marcas",nquest:98},
+    {archivo:"PSP.json",nombre:"DAM Programación de servicios y procesos",nquest:82},
+    {archivo:"SGE.json",nombre:"DAM Sistemas de Gestión Empresarial",nquest:110},
+    {archivo:"PMDM.json",nombre:"DAM Programación Multimedia y Dispositivos Móviles",nquest:89},
+    {archivo:"DA.json",nombre:"DAW Despliegue de aplicaciones",nquest:58},
+    {archivo:"DIDAW.json",nombre:"DAW Desarrollo de interfaces",nquest:75},
+    {archivo:"EC.json",nombre:"DAW Entorno Cliente",nquest:69}
+]
 const butt2=document.createElement('button')
 butt2.classList.add('Butt1')
 butt2.innerText="EMPEZAR"
