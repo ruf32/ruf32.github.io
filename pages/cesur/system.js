@@ -23,7 +23,7 @@ const direcciones=[
     {archivo:"SGE.json",nombre:"DAM Sistemas de Gestión Empresarial",nquest:110},
     {archivo:"PMDM.json",nombre:"DAM Programación Multimedia y Dispositivos Móviles",nquest:89},
     {archivo:"DA.json",nombre:"DAW Despliegue de aplicaciones",nquest:58},
-    {archivo:"DIDAW.json",nombre:"DAW Desarrollo de interfaces",nquest:75},
+    {archivo:"DIDAW.json",nombre:"DAW Desarrollo de interfaces",nquest:97},
     {archivo:"EC.json",nombre:"DAW Entorno Cliente",nquest:69}
 ]
 const butt2=document.createElement('button')
